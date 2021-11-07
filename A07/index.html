@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Manipulating Elements</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <ul>
+        <li><img src="/image/icon/search.png" width="25px" height="25px" id="search"></li>
+        <span id="searchBar" style="display: inline-block;"></span>
+        <svg><img src="/image/icon/cart.png" width="25px" height="25px" id="cart"></svg>
+        <!-- <span id="incart"> -->
+    </ul>
+    <h1>UNIQLO Costume Collection</h1>
+    <div id="products"></div>
+
+
+
+    <!-- <p>Click "Try it" to execute the displayDate() function.</p>
+
+    <button id="myBtn">Try it</button>
+
+    <p id="demo"></p> -->
+
+    <script>
+        document.getElementById("myBtn").onclick = display;
+
+        function display() {
+            document.getElementById("demo").innerHTML = `${count}`;
+        }
+    </script>
+    <script src="productList.js" type="module"></script>
+    <script src="search.js" type="module"></script>
+    <script src="addCart.js" type="module"></script>
+</body>
+
+</html>
