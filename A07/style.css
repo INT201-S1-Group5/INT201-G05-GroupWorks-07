@@ -46,9 +46,12 @@ li a {
 }
 
 #cart {
+    position: absolute;
     float: right;
-    margin: 10px;
-    margin-right: 120px;
+    /*margin: 10px;
+    margin-right: 20px;*/
+    margin-top: 10px;
+    margin-left: 68.75em;
 }
 
 h1 {
@@ -64,4 +67,15 @@ h1 {
 #prodAmount {
     border-radius: 10em;
     color: red;
+}
+
+/** New Edition */
+#incart {
+    float: right;
+    margin-top: 10px;
+    position: absolute;
+    background-color: red;
+    color: white;
+    margin-left: 70em;
+    border-radius: 10em;
 }

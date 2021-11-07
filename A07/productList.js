@@ -40,32 +40,50 @@ for (let i = 0; i < product.length; i++) {
 let addCart = document.querySelectorAll(".Add");
 let cartNumbers = document.querySelector("#cart");
 let createCart = document.createElement("p");
-createCart.id = 'a'
+
+// createCart.id = 'a'
 
 cartNumbers.appendChild(createCart);
 
-
-
+// let cartEle = document.querySelector('#incart');
+// let amount = 0;
+// cartEle.innerHTML = `${amount}`
+// for (let i = 0; i < addCart.length; i++) {
+//     addCart[i].addEventListener("click", () => {
+//         amount += 1;
+//         alert(`เพิ่ม ${addCart[i].id} 1 ชิ้น`);
+//         cartEle.innerHTML = `${amount}`;
+//     })
+// }
 
 let amount = 0;
-cartNumbers.innerHTML = `${amount}`;
+let cartCollect = [];
+
+cartNumbers.addEventListener("click", 
+  () => {alert(cartCollect);},true)
+
+cartEle.innerHTML = `${amount}`
 for (let i = 0; i < addCart.length; i++) {
-    addCart[i].addEventListener("click", () => {
-        alert(`เพิ่ม ${addCart[i].id} 1 ชิ้น`)
-        amount += 1;
-        cartNumbers.innerHTML = `${amount}`;
-    })
+  addCart[i].addEventListener("click", () => {
+    amount += 1;
+    alert(`เพิ่ม ${addCart[i].id} 1 ชิ้น`);
+    cartEle.innerHTML = `${amount}`;
+    // ยังใช้ไม่ได้ 
+    // let addProduct = addCart.id;
+    if(cartCollect.id.include(addCart[i].id) == false){
+      let cartC = {};
+      cartC.id = `${addCart[i].id}`;
+      cartC.amount = 1;
+      cartCollect.push(cartC);
+    } else {
+        if(cartCollect.filter(id == addCart[i].id)) {
+            cartC.amount++;
+        }
+    }
+    
+  },true)
 }
 
-// let cartEle = document.querySelector('#incart')
-let count = 0;
-cartNumbers.textContent = count;
-let incart = [];
-cartNumbers.addEventListener("click", () => {
-    let a = [];
-    incart = a;
-    cartNumbers.textContent = count = 0;
-    console.log(incart);
-})
+
 
 export * from './productList.js';
