@@ -3,16 +3,16 @@
     box-shadow: gray 1px 1px 3px;
     float: left;
     margin: 1em;
-    font-size: 5px;
+    font-size: 1.1em;
     padding: 1em;
-    width: 160px;
-    height: 64em;
+    width: 300px;
+    height: 40em;
     text-align: center;
     font-family: 'TH Sarabun PSK', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .product img {
-    width: 120px;
+    width: 15em;
     align-items: center;
     display: block;
     margin-left: auto;
@@ -32,12 +32,13 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: #E7C3AA;
-    height: 3em;
+    height: 3.5em;
 }
 
 li #search {
     float: left;
-    margin: 10px
+    margin: 10px;
+    margin-top: 13px;
 }
 
 li a {
@@ -48,15 +49,14 @@ li a {
 #cart {
     position: absolute;
     float: right;
-    /*margin: 10px;
-    margin-right: 20px;*/
-    margin-top: 10px;
+    margin-top: 13px;
     margin-left: 68.75em;
 }
 
 h1 {
     text-align: center;
     font-family: 'TH Sarabun PSK', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 3.5em;
 }
 
 #searchBar {
@@ -76,6 +76,6 @@ h1 {
     position: absolute;
     background-color: red;
     color: white;
-    margin-left: 70em;
+    margin-left: 70.2em;
     border-radius: 10em;
 }
