@@ -57,33 +57,58 @@ let cartEle = document.querySelector('#incart');
 // }
 
 let amount = 0;
-let cartCollect = [];
-
-// cartNumbers.addEventListener("click", 
-//   () => {alert(cartCollect);},true)
+let cartCollect = {};
 
 cartEle.innerHTML = `${amount}`
-for (let i = 0; i < addCart.length; i++) {
+for(let i = 0; i < addCart.length; i++) {
   addCart[i].addEventListener("click", () => {
     amount += 1;
     alert(`เพิ่ม ${addCart[i].id} 1 ชิ้น`);
     cartEle.innerHTML = `${amount}`;
-    // ยังใช้ไม่ได้ 
-    // let addProduct = addCart.id;
-    // if(cartCollect.id.include(addCart[i].id) == false){
-    //   let cartC = {};
-    //   cartC.id = `${addCart[i].id}`;
-    //   cartC.amount = 1;
-    //   cartCollect.push(cartC);
-    // } else {
-    //     if(cartCollect.filter(id == addCart[i].id)) {
-    //         cartC.amount++;
-    //     }
-    // }
+    let addProduct = `${addCart[i].id}`;
+    if((`${addCart[i].id}` in cartCollect) == false){
+    let cartC = {};
+    cartC.key = addProduct;
+    cartC.value = 1;
+    Object.assign(cartCollect,cartC);
+    localStorage.setItem('productLists',JSON.stringify(cartCollect)); // application: key,value
+    } else {
+      if(cartCollect.cartC.key == `${addCart[i].id}`) {
+        cartC.value += 1;
+      }
+    }
     
   },true)
 }
 
 
+
+cartNumbers.addEventListener("click", () => {
+  // for(var c in ){
+  alert(localStorage.getItem('productLists'));
+  // }
+}, true);
+
+    // if(cartCollect.include(addProduct) == false){
+    //   let cartC = {};
+    //   cartC.key = addProduct;
+    //   cartC.value = 1;
+    //   cartCollect.push(cartC);
+    // } else {
+    //   if(cartCollect.filter(cartC.id == addProduct)) {
+    //     cartC.amount++;
+    //   }
+    // }
+
+// function clickAdd() {
+//   let yCart = {};
+//   let countP = 0;
+//   yCart.id.innerHTML += `${id}`;
+//   yCart.cart.innerHTML = ++countP;
+
+//   cartCollect.push(yCart);
+//   alert("Complete!")
+
+// }
 
 export * from './productList.js';
