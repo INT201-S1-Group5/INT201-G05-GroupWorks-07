@@ -39,76 +39,35 @@ for (let i = 0; i < product.length; i++) {
 
 let addCart = document.querySelectorAll(".Add");
 let cartNumbers = document.querySelector("#cart");
-let createCart = document.createElement("p");
-
-// createCart.id = 'a'
-
-cartNumbers.appendChild(createCart);
-
 let cartEle = document.querySelector('#incart');
-// let amount = 0;
-// cartEle.innerHTML = `${amount}`
-// for (let i = 0; i < addCart.length; i++) {
-//     addCart[i].addEventListener("click", () => {
-//         amount += 1;
-//         alert(`เพิ่ม ${addCart[i].id} 1 ชิ้น`);
-//         cartEle.innerHTML = `${amount}`;
-//     })
-// }
 
 let amount = 0;
 let cartCollect = {};
 
-cartEle.innerHTML = `${amount}`
-for(let i = 0; i < addCart.length; i++) {
-  addCart[i].addEventListener("click", () => {
-    amount += 1;
-    alert(`เพิ่ม ${addCart[i].id} 1 ชิ้น`);
-    cartEle.innerHTML = `${amount}`;
-    let addProduct = `${addCart[i].id}`;
-    if((`${addCart[i].id}` in cartCollect) == false){
-    let cartC = {};
-    cartC.key = addProduct;
-    cartC.value = 1;
-    Object.assign(cartCollect,cartC);
-    localStorage.setItem('productLists',JSON.stringify(cartCollect)); // application: key,value
-    } else {
-      if(cartCollect.cartC.key == `${addCart[i].id}`) {
-        cartC.value += 1;
-      }
-    }
-    
-  },true)
+cartEle.innerHTML = `${amount}`;
+for (let i = 0; i < addCart.length; i++) {
+    addCart[i].addEventListener("click", () => {
+        amount += 1;
+        alert(`เพิ่ม ${addCart[i].id} 1 ชิ้น`); // แจ้งเตือน alert ว่าสินค้าที่พึ่งกดไปคืออะไร เพื่อให้กดตกลงและเพิ่มลงตะกร้า
+        cartEle.innerHTML = `${amount}`; // โชว์เลขตะกร้าหลังกดเพิ่ม
+        let addProductID = `${addCart[i].id}`; // กำหนด addProduct เป็นรหัสสินค้า
+        if ((`${addCart[i].id}` in cartCollect) == false) { // พยายามให้เช็กว่ามีรหัสสินค้าใน cartCollect แล้วรึยัง [กรณีไม่มี]
+            let cartC = {}; // สร้าง object สำหรับเก็บสินค้าแต่ละรหัส
+            cartC.key = addProductID; // เก็บรหัสสินค้าเป็น key
+            cartC.value = 1; // เพิ่มสินค้าครั้งแรกให้แสดงเท่ากับ 1 ชิ้นเลย
+            Object.assign(cartCollect, cartC); // ส่ง cartC เข้าไปเพิ่มใน cartCollect
+            for (let i = 0; i < addCart.length; i++) {
+                localStorage.setItem('productLists', JSON.stringify(cartCollect)); // กำหนด productLists เป็น key และเก็บ cartCollect ไว้เป็น value
+            }
+        } else {
+            if (cartCollect.cartC.key == `${addCart[i].id}`) {
+                cartC.value += 1;
+            }
+        }
+    }, true)
 }
 
-
-
+// เมื่อกดตะกร้าหลังเพิ่มสินค้าแล้ว จะแจ้งเตือน alert ว่าสินค้าล่าสุดที่เพิ่มคืออะไร
 cartNumbers.addEventListener("click", () => {
-  // for(var c in ){
-  alert(localStorage.getItem('productLists'));
-  // }
+    alert(localStorage.getItem('productLists'));
 }, true);
-
-    // if(cartCollect.include(addProduct) == false){
-    //   let cartC = {};
-    //   cartC.key = addProduct;
-    //   cartC.value = 1;
-    //   cartCollect.push(cartC);
-    // } else {
-    //   if(cartCollect.filter(cartC.id == addProduct)) {
-    //     cartC.amount++;
-    //   }
-    // }
-
-// function clickAdd() {
-//   let yCart = {};
-//   let countP = 0;
-//   yCart.id.innerHTML += `${id}`;
-//   yCart.cart.innerHTML = ++countP;
-
-//   cartCollect.push(yCart);
-//   alert("Complete!")
-
-// }
-
-export * from './productList.js';
